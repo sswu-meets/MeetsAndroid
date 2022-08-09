@@ -2,29 +2,25 @@ package com.example.meets;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
-//calendarutil.selecteddate.getdaymonth...
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
-public class PlusMoimActivity extends AppCompatActivity {
-
+public class ChangeMoimActivity extends AppCompatActivity {
     EditText txt_place;
     LinearLayout listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_plusmoim);
+        setContentView(R.layout.activity_changemoim);
 
         Button btn_finish = (Button) findViewById(R.id.btn_finish);
         Button btn_todo = (Button) findViewById(R.id.btn_todo);
@@ -73,5 +69,4 @@ public class PlusMoimActivity extends AppCompatActivity {
         listView.addView(textViewN);
 
     }
-
 }

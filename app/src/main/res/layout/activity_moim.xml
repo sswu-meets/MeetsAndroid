@@ -137,13 +137,14 @@
                 android:layout_marginBottom="7dp"
                 android:layout_marginTop="7dp"
                 android:orientation="vertical">
+
                 <EditText
                     android:id="@+id/edittext"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@color/white"
                     android:text="|"
-                    android:textColor="@color/black"/>
+                    android:textColor="@color/black" />
                 <TextView
                     android:id="@+id/textview"
                     android:layout_width="wrap_content"

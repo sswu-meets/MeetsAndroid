@@ -29,6 +29,8 @@
         <activity android:name=".MakeMoimActivity"></activity>
         <activity android:name=".MakeMoimFormActivity"></activity>
         <activity android:name=".PlusMoimActivity"></activity>
+        <activity android:name=".ChangeMoimActivity"></activity>
+        <activity android:name=".WeekChooseActivity"></activity>
 
 
     </application>

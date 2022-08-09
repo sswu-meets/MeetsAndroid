@@ -1,12 +1,14 @@
 package com.example.meets;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -37,6 +39,24 @@ public class MakeMoimActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_makemoim);
 
+        Intent intent = getIntent();
+        String schedule = intent.getStringExtra("schedule");
+        String place = intent.getStringExtra("place");
+
+        TextView txt_schedule = findViewById(R.id.txt_schedule);
+        txt_schedule.setText(schedule);
+        TextView txt_place1 = findViewById(R.id.txt_place1);
+        txt_place1.setText(place);
+
+        Button btn_plusPeople = (Button) findViewById(R.id.btn_PlusPeople);
+        btn_plusPeople.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), WeekChooseActivity.class);
+                startActivity(intent);
+            }
+        });
+
         Spinner spinner = findViewById(R.id.spn_Make);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.make, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -45,6 +65,10 @@ public class MakeMoimActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String text = adapterView.getItemAtPosition(i).toString();
+                if (text.equals("편집")) {
+                    Intent intent = new Intent(getApplicationContext(), ChangeMoimActivity.class);
+                    startActivity(intent);
+                }
                 Toast.makeText(adapterView.getContext(), text, Toast.LENGTH_SHORT).show();
             }
 
