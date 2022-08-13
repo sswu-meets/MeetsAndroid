@@ -17,6 +17,8 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+
 public class MakeMoimActivity extends AppCompatActivity {
 
     private static final String TAG = "activity_makemoim";
@@ -41,9 +43,17 @@ public class MakeMoimActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String schedule = intent.getStringExtra("schedule");
-        String place1 = intent.getStringExtra("place1");
-        String place2 = intent.getStringExtra("place2");
-        String place3 = intent.getStringExtra("place3");
+        ArrayList<String> arrayList_place = (ArrayList<String>)getIntent().getSerializableExtra("place");
+        String place1 = arrayList_place.get(0).length() >= 0 ? arrayList_place.get(0): "받은 장소가 없습니다.";
+        String place2 = arrayList_place.get(1).length() >= 0 ? arrayList_place.get(1): "받은 장소가 없습니다.";
+        String place3 = arrayList_place.get(2).length() >= 0 ? arrayList_place.get(2): "받은 장소가 없습니다.";
+
+        ArrayList<String> arrayList_todo = (ArrayList<String>)getIntent().getSerializableExtra("todo");
+        String todo1 = arrayList_todo.get(0).length() >= 0 ? arrayList_todo.get(0): "받은 할 일이 없습니다.";
+        String todo2 = arrayList_todo.get(1).length() >= 0 ? arrayList_todo.get(1): "받은 할 일이 없습니다.";
+        String todo3 = arrayList_todo.get(2).length() >= 0 ? arrayList_todo.get(2): "받은 할 일이 없습니다.";
+        String todo4 = arrayList_todo.get(3).length() >= 0 ? arrayList_todo.get(3): "받은 할 일이 없습니다.";
+
 
         TextView txt_schedule = findViewById(R.id.txt_schedule);
         txt_schedule.setText(schedule);
@@ -53,6 +63,15 @@ public class MakeMoimActivity extends AppCompatActivity {
         txt_place2.setText(place2);
         TextView txt_place3 = findViewById(R.id.txt_place3);
         txt_place3.setText(place3);
+
+        TextView txt_todo1 = findViewById(R.id.todo1);
+        txt_todo1.setText(todo1);
+        TextView txt_todo2 = findViewById(R.id.todo2);
+        txt_todo2.setText(todo2);
+        TextView txt_todo3 = findViewById(R.id.todo3);
+        txt_todo3.setText(todo3);
+        TextView txt_todo4 = findViewById(R.id.todo4);
+        txt_todo4.setText(todo4);
 
         Button btn_plusPeople = (Button) findViewById(R.id.btn_PlusPeople);
         btn_plusPeople.setOnClickListener(new View.OnClickListener() {

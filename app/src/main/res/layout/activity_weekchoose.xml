@@ -119,7 +119,7 @@
                 <Button
                     android:layout_width="30dp"
                     android:layout_height="101dp"
-                    android:background="@drawable/edge"/>
+                    android:background="@drawable/edge" />
             </LinearLayout>
 
             <View

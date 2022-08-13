@@ -191,22 +191,26 @@
 
                     <CheckBox
                         android:id="@+id/todo1"
+                        android:button="@drawable/checkbox_change"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="할 일1" />
 
                     <CheckBox
                         android:layout_width="wrap_content"
+                        android:button="@drawable/checkbox_change"
                         android:layout_height="wrap_content"
                         android:text="할 일2" />
 
                     <CheckBox
                         android:layout_width="wrap_content"
+                        android:button="@drawable/checkbox_change"
                         android:layout_height="wrap_content"
                         android:text="할 일3" />
 
                     <CheckBox
                         android:layout_width="wrap_content"
+                        android:button="@drawable/checkbox_change"
                         android:layout_height="wrap_content"
                         android:text="할 일4" />
                 </LinearLayout>
