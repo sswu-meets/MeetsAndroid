@@ -80,7 +80,7 @@ public class WeekChooseActivity extends AppCompatActivity {
     }
 
     public void OnClickHandler(View view) {
-        TimePickerDialog dialog = new TimePickerDialog(this, callbackMethod, 8, 10, true);
+        TimePickerDialog dialog = new TimePickerDialog(this, android.R.style.Theme_Holo_Light_Dialog, callbackMethod, 00, 00, true);
         dialog.show();
     }
 }

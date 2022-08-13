@@ -538,12 +538,12 @@
                             android:padding="10sp" />
 
                         <TextView
+                            android:id="@+id/txt_place2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="위치 2"
-                            android:textStyle="bold"
-                            android:textColor="@color/secondary"/>
-
+                            android:paddingLeft="15dp"
+                            android:textColor="@color/secondary"
+                            android:textStyle="bold" />
                         <View
                             android:layout_width="0dp"
                             android:layout_height="0dp"
@@ -582,12 +582,12 @@
                             android:padding="10sp" />
 
                         <TextView
+                            android:id="@+id/txt_place3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="위치 3"
-                            android:textStyle="bold"
-                            android:textColor="@color/secondary"/>
-
+                            android:paddingLeft="15dp"
+                            android:textColor="@color/secondary"
+                            android:textStyle="bold" />
                         <View
                             android:layout_width="0dp"
                             android:layout_height="0dp"

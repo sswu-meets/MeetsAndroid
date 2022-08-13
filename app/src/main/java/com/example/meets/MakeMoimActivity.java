@@ -41,12 +41,18 @@ public class MakeMoimActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String schedule = intent.getStringExtra("schedule");
-        String place = intent.getStringExtra("place");
+        String place1 = intent.getStringExtra("place1");
+        String place2 = intent.getStringExtra("place2");
+        String place3 = intent.getStringExtra("place3");
 
         TextView txt_schedule = findViewById(R.id.txt_schedule);
         txt_schedule.setText(schedule);
         TextView txt_place1 = findViewById(R.id.txt_place1);
-        txt_place1.setText(place);
+        txt_place1.setText(place1);
+        TextView txt_place2 = findViewById(R.id.txt_place2);
+        txt_place2.setText(place2);
+        TextView txt_place3 = findViewById(R.id.txt_place3);
+        txt_place3.setText(place3);
 
         Button btn_plusPeople = (Button) findViewById(R.id.btn_PlusPeople);
         btn_plusPeople.setOnClickListener(new View.OnClickListener() {
@@ -66,7 +72,15 @@ public class MakeMoimActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String text = adapterView.getItemAtPosition(i).toString();
                 if (text.equals("편집")) {
+                    String place1 = txt_place1.getText().toString();
+                    String place2 = txt_place2.getText().toString();
+                    String place3 = txt_place3.getText().toString();
+                    String schedule = txt_schedule.getText().toString();
                     Intent intent = new Intent(getApplicationContext(), ChangeMoimActivity.class);
+                    intent.putExtra("schedule", schedule);
+                    intent.putExtra("place1", place1);
+                    intent.putExtra("place2", place2);
+                    intent.putExtra("place3", place3);
                     startActivity(intent);
                 }
                 Toast.makeText(adapterView.getContext(), text, Toast.LENGTH_SHORT).show();

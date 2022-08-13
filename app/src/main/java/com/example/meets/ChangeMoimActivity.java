@@ -1,72 +1,139 @@
 package com.example.meets;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
+import androidx.core.content.ContextCompat;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
 public class ChangeMoimActivity extends AppCompatActivity {
+
+    SwitchCompat switchOnOff;
+    TextView tvSwitchYes;
+    TextView tvSwitchNo;
+
+    TextView textView_Date;
+    TextView textView_start_time;
+    TextView textView_end_time;
+    DatePickerDialog.OnDateSetListener date;
+    TimePickerDialog.OnTimeSetListener time_start;
+    TimePickerDialog.OnTimeSetListener time_end;
+    Button btn_date;
+    Button btn_start_time;
+    Button btn_end_time;
+
     EditText txt_place;
     LinearLayout listView;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_changemoim);
+        switchOnOff = findViewById(R.id.switchOnOff);
+        tvSwitchYes = findViewById(R.id.tvSwitchYes);
+        tvSwitchNo = findViewById(R.id.tvSwitchNo);
 
+        switchOnOff.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                int white = ContextCompat.getColor(getApplicationContext(), R.color.white);
+                int black = ContextCompat.getColor(getApplicationContext(), R.color.black);
+
+                if(isChecked){
+                    tvSwitchYes.setTextColor(black);
+                    tvSwitchNo.setTextColor(white);
+                }else{
+                    tvSwitchYes.setTextColor(white);
+                    tvSwitchNo.setTextColor(black);
+                }
+            }
+        });
+
+        textView_Date = findViewById(R.id.txt_date);
+        textView_start_time = findViewById(R.id.tv_start);
+        textView_end_time = findViewById(R.id.tv_end);
+        date = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                textView_Date.setText(year + "년 " + month + "월 " + day + "일");
+            }
+        };
+
+        btn_date = findViewById(R.id.btn_date);
+        btn_date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DatePickerDialog date_dialog = new DatePickerDialog(ChangeMoimActivity.this, date, 2022, 8, 13);
+                date_dialog.show();
+            }
+        });
+
+        time_start = new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int h, int m) {
+                textView_start_time.setText(h + "시" + m + "분");
+            }
+        };
+        btn_start_time = findViewById(R.id.btn_start_time);
+        btn_start_time.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TimePickerDialog time_dialog_start = new TimePickerDialog(ChangeMoimActivity.this, android.R.style.Theme_Holo_Light_Dialog, time_start, 10, 00, false);
+                time_dialog_start.show();
+            }
+        });
+
+        time_end = new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int h, int m) {
+                textView_start_time.setText(h + "시" + m + "분");
+            }
+        };
+        btn_end_time = findViewById(R.id.btn_end_time);
+        btn_end_time.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TimePickerDialog time_dialog_end = new TimePickerDialog(ChangeMoimActivity.this,android.R.style.Theme_Holo_Light_Dialog, time_end, 20, 00, false);
+                time_dialog_end.show();
+            }
+        });
+
+        Intent intent = getIntent();
+        String schedule = intent.getStringExtra("schedule");
+        String place1 = intent.getStringExtra("place1");
+        String place2 = intent.getStringExtra("place2");
+        String place3 = intent.getStringExtra("place3");
+
+        TextView txt_schedule = findViewById(R.id.txt_schedule);
+        txt_schedule.setText(schedule);
+        TextView txt_place1 = findViewById(R.id.txt_place1);
+        txt_place1.setText(place1);
+        TextView txt_place2 = findViewById(R.id.txt_place2);
+        txt_place2.setText(place2);
+        TextView txt_place3 = findViewById(R.id.txt_place3);
+        txt_place3.setText(place3);
         Button btn_finish = (Button) findViewById(R.id.btn_finish);
         Button btn_todo = (Button) findViewById(R.id.btn_todo);
         Button btn_place = findViewById(R.id.btn_place);
-        EditText txt_schedule = findViewById(R.id.txt_schedule);
-        EditText txt_todo = findViewById(R.id.txt_todo);
-
-
-        txt_place = findViewById(R.id.txt_place);
-        listView = findViewById(R.id.layout_place);
-
-
-        final ArrayList<String> arrayList = new ArrayList<>();
-        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, arrayList);
-
-        btn_finish.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String place = txt_place.getText().toString();
-                String schedule = txt_schedule.getText().toString();
-                Intent intent = new Intent(getApplicationContext(), MakeMoimActivity.class);
-                intent.putExtra("schedule", schedule);
-                intent.putExtra("place", place);
-                startActivity(intent);
-            }
-        });
-
-        btn_place.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                createTextView();
-            }
-        });
-    }
-
-    private void createTextView() {
-        TextView textViewN = new TextView(getApplicationContext());
-        textViewN.setText(txt_place.getText());
-        textViewN.setTextSize(12);
-        //textViewN.setTypeface(null, );
-        textViewN.setId(0);
-        LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-        param.leftMargin = 30;
-
-        textViewN.setLayoutParams(param);
-        listView.addView(textViewN);
 
     }
+
 }

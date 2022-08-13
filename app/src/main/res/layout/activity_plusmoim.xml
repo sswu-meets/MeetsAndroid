@@ -232,21 +232,57 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"/>
 
-                <Button
-                    android:layout_width="55dp"
-                    android:layout_height="12dp"
-                    android:background="@color/secondary"
-                    android:text="고정"
-                    android:textColor="@color/black"
-                    android:textSize="14dp" />
+                <RelativeLayout
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="130sp"
+                    android:layout_marginRight="50sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="33dp"
+                    android:background="@drawable/bg_switch"
+                    android:padding="2.5sp">
 
-                <Button
-                    android:layout_width="55dp"
-                    android:layout_height="18dp"
-                    android:text="조율"
-                    android:textSize="14dp"
-                    android:background="@color/white"
-                    android:textColor="@color/black"/>
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switchOnOff"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        android:checked="true"
+                        android:textColor="@color/white"
+                        android:thumb="@drawable/thumb_selector"
+                        app:switchMinWidth="140dp"
+                        app:track="@drawable/track_selector" />
+
+                    <LinearLayout
+                        android:layout_width="140dp"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:id="@+id/tvSwitchYes"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="고정"
+                            android:textColor="@color/black"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tvSwitchNo"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="조율"
+                            android:textColor="@color/white"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+                </RelativeLayout>
 
             </LinearLayout>
 
@@ -254,13 +290,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
                 <LinearLayout
                     android:layout_width="150dp"
                     android:layout_height="70dp"
                     android:background="@color/secondary"
                     android:orientation="vertical">
-
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -277,11 +311,12 @@
                             android:padding="10sp" />
 
                         <TextView
+                            android:id="@+id/txt_date"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="날짜"
-                            android:textSize="16dp"
-                            android:textColor="@color/white"/>
+                            android:textColor="@color/white"
+                            android:textSize="16dp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -296,11 +331,12 @@
                             android:layout_weight="1" />
 
                         <Button
+                            android:id="@+id/btn_date"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="오늘날짜"
-                            android:textColor="@color/black"
-                            android:background="@color/white" />
+                            android:background="@color/white"
+                            android:text="조율 GO"
+                            android:textColor="@color/black" />
 
                         <View
                             android:layout_width="0dp"
@@ -309,7 +345,6 @@
 
                     </LinearLayout>
                 </LinearLayout>
-
 
                 <LinearLayout
                     android:layout_width="250dp"
@@ -335,42 +370,52 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="시간"
-                            android:textSize="16dp"
-                            android:textColor="@color/black"/>
+                            android:textColor="@color/black"
+                            android:textSize="16dp" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
-                        <ImageView
+
+                        <Button
+                            android:id="@+id/btn_start_time"
                             android:layout_width="18sp"
                             android:layout_height="18sp"
                             android:layout_gravity="center"
                             android:layout_marginLeft="15sp"
                             android:background="@drawable/set_start"
                             android:padding="10sp" />
+
                         <TextView
+                            android:id="@+id/tv_start"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="20 : 00  PM"
-                            android:textColor="@color/black"/>
+                            android:text="10 : 00 AM"
+                            android:textColor="@color/black" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+
+                        <Button
+                            android:id="@+id/btn_end_time"
+                            android:layout_width="18sp"
+                            android:layout_height="18sp"
                             android:layout_gravity="center"
                             android:layout_marginLeft="15sp"
                             android:background="@drawable/set_end"
                             android:padding="10sp" />
+
                         <TextView
+                            android:id="@+id/tv_end"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="22 : 00  PM"
-                            android:textColor="@color/black"/>
+                            android:text="10 : 00 PM"
+                            android:textColor="@color/black" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -395,15 +440,18 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
-                        <ImageButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-
+                        <ImageView
+                            android:layout_width="10dp"
+                            android:layout_height="14dp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="15sp"
+                            android:background="@drawable/place_btn"
+                            android:padding="10sp" />
                         <EditText
-                            android:id="@+id/txt_place"
+                            android:id="@+id/txt_place1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="위치 추가하기"
+                            android:text="위치 1 추가하기"
                             android:textSize="14dp"
                             android:textColor="@color/secondary"/>
 
@@ -413,12 +461,91 @@
                             android:layout_weight="1"/>
 
                         <Button
-                            android:id="@+id/btn_place"
+                            android:id="@+id/btn_place1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="+"
                             android:textColor="@color/secondary" />
                     </LinearLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/edge">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="10dp"
+                            android:layout_height="14dp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="15sp"
+                            android:background="@drawable/place_btn"
+                            android:padding="10sp" />
+                        <EditText
+                            android:id="@+id/txt_place2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="위치 2 추가하기"
+                            android:textSize="14dp"
+                            android:textColor="@color/secondary"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"/>
+
+                        <Button
+                            android:id="@+id/btn_place2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="+"
+                            android:textColor="@color/secondary" />
+                    </LinearLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/edge">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="10dp"
+                            android:layout_height="14dp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="15sp"
+                            android:background="@drawable/place_btn"
+                            android:padding="10sp" />
+                        <EditText
+                            android:id="@+id/txt_place3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="위치 3 추가하기"
+                            android:textSize="14dp"
+                            android:textColor="@color/secondary"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"/>
+
+                        <Button
+                            android:id="@+id/btn_place3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="+"
+                            android:textColor="@color/secondary" />
+                    </LinearLayout>
+
                 </LinearLayout>
             </LinearLayout>
 

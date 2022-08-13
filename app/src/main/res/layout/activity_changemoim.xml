@@ -238,21 +238,57 @@
                         android:layout_height="0dp"
                         android:layout_weight="1"/>
 
-                    <Button
-                        android:layout_width="55dp"
-                        android:layout_height="18dp"
-                        android:background="@color/white"
-                        android:text="고정"
-                        android:textColor="@color/black"
-                        android:textSize="14dp" />
+                    <RelativeLayout
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="130sp"
+                        android:layout_marginRight="50sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="33dp"
+                        android:background="@drawable/bg_switch"
+                        android:padding="2.5sp">
 
-                    <Button
-                        android:layout_width="55dp"
-                        android:layout_height="18dp"
-                        android:text="조율"
-                        android:textSize="14dp"
-                        android:background="@color/secondary"
-                        android:textColor="@color/black"/>
+                        <androidx.appcompat.widget.SwitchCompat
+                            android:id="@+id/switchOnOff"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:layout_centerVertical="true"
+                            android:layout_centerHorizontal="true"
+                            android:checked="true"
+                            android:textColor="@color/white"
+                            android:thumb="@drawable/thumb_selector"
+                            app:switchMinWidth="140dp"
+                            app:track="@drawable/track_selector" />
+
+                        <LinearLayout
+                            android:layout_width="140dp"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
+
+                            <TextView
+                                android:id="@+id/tvSwitchYes"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="고정"
+                                android:textColor="@color/black"
+                                android:textSize="12sp" />
+
+                            <TextView
+                                android:id="@+id/tvSwitchNo"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:text="조율"
+                                android:textColor="@color/white"
+                                android:textSize="12sp" />
+
+                        </LinearLayout>
+                    </RelativeLayout>
 
                 </LinearLayout>
 
@@ -282,6 +318,7 @@
                                 android:padding="10sp" />
 
                             <TextView
+                                android:id="@+id/txt_date"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="날짜"
@@ -301,6 +338,7 @@
                                 android:layout_weight="1" />
 
                             <Button
+                                android:id="@+id/btn_date"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:background="@color/white"
@@ -348,7 +386,8 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
 
-                            <ImageView
+                            <Button
+                                android:id="@+id/btn_start_time"
                                 android:layout_width="18sp"
                                 android:layout_height="18sp"
                                 android:layout_gravity="center"
@@ -357,9 +396,10 @@
                                 android:padding="10sp" />
 
                             <TextView
+                                android:id="@+id/tv_start"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="20 : 00  PM"
+                                android:text="10 : 00 AM"
                                 android:textColor="@color/black" />
                         </LinearLayout>
 
@@ -368,18 +408,20 @@
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
 
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                            <Button
+                                android:id="@+id/btn_end_time"
+                                android:layout_width="18sp"
+                                android:layout_height="18sp"
                                 android:layout_gravity="center"
                                 android:layout_marginLeft="15sp"
                                 android:background="@drawable/set_end"
                                 android:padding="10sp" />
 
                             <TextView
+                                android:id="@+id/tv_end"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="22 : 00  PM"
+                                android:text="10 : 00 PM"
                                 android:textColor="@color/black" />
                         </LinearLayout>
                     </LinearLayout>
@@ -444,152 +486,153 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:paddingTop="10dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="LIST"
-                        android:textSize="14dp" />
-
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/edge"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="10dp"
-                            android:layout_height="14dp"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="15sp"
-                            android:background="@drawable/place_btn"
-                            android:padding="10sp" />
+                        android:orientation="vertical"
+                        android:paddingTop="10dp">
 
                         <TextView
-                            android:id="@+id/txt_place1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:paddingLeft="15dp"
-                            android:textColor="@color/secondary"
-                            android:textStyle="bold" />
+                            android:text="LIST"
+                            android:textSize="14dp"/>
 
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:layout_weight="1" />
-
-                        <TextView
-                            android:id="@+id/tv_good1"
-                            android:layout_width="wrap_content"
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="0" />
+                            android:orientation="horizontal"
+                            android:background="@drawable/edge">
+                            <ImageView
+                                android:layout_width="10dp"
+                                android:layout_height="14dp"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="15sp"
+                                android:background="@drawable/place_btn"
+                                android:padding="10sp" />
 
-                        <Button
-                            android:id="@+id/btn_good1"
-                            android:layout_width="10dp"
+                            <TextView
+                                android:id="@+id/txt_place1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="15dp"
+                                android:textColor="@color/secondary"
+                                android:textStyle="bold" />
+
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"/>
+
+                            <TextView
+                                android:id="@+id/tv_good1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"/>
+
+                            <Button
+                                android:id="@+id/btn_good1"
+                                android:onClick="moveBack"
+                                android:layout_weight="1"
+                                android:layout_width="10dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="18dp"
+                                android:padding="0sp"
+                                android:scaleType = "centerCrop"
+                                android:drawableTop="@drawable/good_btn" />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="18dp"
-                            android:layout_weight="1"
-                            android:drawableTop="@drawable/good_btn"
-                            android:onClick="moveBack"
-                            android:padding="0sp"
-                            android:scaleType="centerCrop" />
+                            android:orientation="horizontal"
+                            android:background="@drawable/edge">
+                            <ImageView
+                                android:layout_width="10dp"
+                                android:layout_height="14dp"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="15sp"
+                                android:background="@drawable/place_btn"
+                                android:padding="10sp" />
+
+                            <TextView
+                                android:id="@+id/txt_place2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="15dp"
+                                android:textColor="@color/secondary"
+                                android:textStyle="bold" />
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"/>
+
+                            <TextView
+                                android:id="@+id/tv_good2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"/>
+
+                            <Button
+                                android:id="@+id/btn_good2"
+                                android:onClick="moveBack"
+                                android:layout_weight="1"
+                                android:layout_width="10px"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="18dp"
+                                android:padding="0sp"
+                                android:scaleType = "centerCrop"
+                                android:drawableTop="@drawable/good_btn" />
 
 
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:background="@drawable/edge">
+                            <ImageView
+                                android:layout_width="10dp"
+                                android:layout_height="14dp"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="15sp"
+                                android:background="@drawable/place_btn"
+                                android:padding="10sp" />
+
+                            <TextView
+                                android:id="@+id/txt_place3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="15dp"
+                                android:textColor="@color/secondary"
+                                android:textStyle="bold" />
+                            <View
+                                android:layout_width="0dp"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"/>
+
+                            <TextView
+                                android:id="@+id/tv_good3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0"/>
+
+                            <Button
+                                android:id="@+id/btn_good3"
+                                android:onClick="moveBack"
+                                android:layout_weight="1"
+                                android:layout_width="10px"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="18dp"
+                                android:padding="0sp"
+                                android:scaleType = "centerCrop"
+                                android:drawableTop="@drawable/good_btn" />
+
+
+                        </LinearLayout>
                     </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/edge"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="10dp"
-                            android:layout_height="14dp"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="15sp"
-                            android:background="@drawable/place_btn"
-                            android:padding="10sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="위치 2"
-                            android:textColor="@color/secondary"
-                            android:textStyle="bold" />
-
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:layout_weight="1" />
-
-                        <TextView
-                            android:id="@+id/tv_good2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0" />
-
-                        <Button
-                            android:id="@+id/btn_good2"
-                            android:layout_width="10px"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="18dp"
-                            android:layout_weight="1"
-                            android:drawableTop="@drawable/good_btn"
-                            android:onClick="moveBack"
-                            android:padding="0sp"
-                            android:scaleType="centerCrop" />
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="@drawable/edge"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="10dp"
-                            android:layout_height="14dp"
-                            android:layout_gravity="center"
-                            android:layout_marginLeft="15sp"
-                            android:background="@drawable/place_btn"
-                            android:padding="10sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="위치 3"
-                            android:textColor="@color/secondary"
-                            android:textStyle="bold" />
-
-                        <View
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:layout_weight="1" />
-
-                        <TextView
-                            android:id="@+id/tv_good3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="0" />
-
-                        <Button
-                            android:id="@+id/btn_good3"
-                            android:layout_width="10px"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="18dp"
-                            android:layout_weight="1"
-                            android:drawableTop="@drawable/good_btn"
-                            android:onClick="moveBack"
-                            android:padding="0sp"
-                            android:scaleType="centerCrop" />
-
-
-                    </LinearLayout>
-
                 </LinearLayout>
             </LinearLayout>
 
