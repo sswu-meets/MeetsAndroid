@@ -352,6 +352,7 @@
                                 android:padding="10sp" />
 
                             <TextView
+                                android:id="@+id/txt_date"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="날짜"
@@ -371,6 +372,7 @@
                                 android:layout_weight="1" />
 
                             <Button
+                                android:id="@+id/btn_date"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="오늘날짜"

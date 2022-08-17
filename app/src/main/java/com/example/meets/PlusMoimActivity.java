@@ -1,5 +1,6 @@
 package com.example.meets;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
@@ -38,14 +39,20 @@ public class PlusMoimActivity extends AppCompatActivity implements Serializable 
     Button btn_start_time;
     Button btn_end_time;
 
-    EditText txt_todo;
-    Button btn_todo;
-    LinearLayout listView_todo;
+    EditText txt_todo1;
+    EditText txt_todo2;
+    EditText txt_todo3;
+    EditText txt_todo4;
 
     EditText txt_place1;
     Button btn_place1;
+    EditText txt_place2;
+    Button btn_place2;
+    EditText txt_place3;
+    Button btn_place3;
     LinearLayout listView_place;
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,6 +102,7 @@ public class PlusMoimActivity extends AppCompatActivity implements Serializable 
                 textView_start_time.setText(h + "시" + m + "분");
             }
         };
+
         btn_start_time = findViewById(R.id.btn_start_time);
         btn_start_time.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -107,7 +115,7 @@ public class PlusMoimActivity extends AppCompatActivity implements Serializable 
         time_end = new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker timePicker, int h, int m) {
-                textView_start_time.setText(h + "시" + m + "분");
+                textView_end_time.setText(h + "시" + m + "분");
             }
         };
         btn_end_time = findViewById(R.id.btn_end_time);
@@ -122,17 +130,21 @@ public class PlusMoimActivity extends AppCompatActivity implements Serializable 
         Button btn_finish = (Button) findViewById(R.id.btn_finish);
         EditText txt_schedule = findViewById(R.id.txt_schedule);
 
-        txt_todo = findViewById(R.id.txt_todo);
-        btn_todo = (Button) findViewById(R.id.btn_todo);
+        txt_todo1 = findViewById(R.id.txt_todo1);
+        txt_todo2 = findViewById(R.id.txt_todo2);
+        txt_todo3 = findViewById(R.id.txt_todo3);
+        txt_todo4 = findViewById(R.id.txt_todo4);
 
         txt_place1 = findViewById(R.id.txt_place1);
         btn_place1 = findViewById(R.id.btn_place1);
 
-        listView_place = findViewById(R.id.layout_place);
-        listView_todo = findViewById(R.id.layout_todo);
+        txt_place2 = findViewById(R.id.txt_place2);
+        btn_place2 = findViewById(R.id.btn_place2);
 
-        final ArrayList<String> arrayList_place = new ArrayList<>();
-        final ArrayList<String> arrayList_todo = new ArrayList<>();
+        txt_place3 = findViewById(R.id.txt_place3);
+        btn_place3 = findViewById(R.id.btn_place3);
+
+        listView_place = findViewById(R.id.layout_place);
 
         btn_place1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -140,29 +152,50 @@ public class PlusMoimActivity extends AppCompatActivity implements Serializable 
                 TextView textViewN = new TextView(getApplicationContext());
                 textViewN.setText(txt_place1.getText());
                 createTextView(textViewN, listView_place);
-                arrayList_place.add(textViewN + "");
             }
         });
 
-        btn_todo.setOnClickListener(new View.OnClickListener() {
+        btn_place2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 TextView textViewN = new TextView(getApplicationContext());
-                textViewN.setText(txt_todo.getText());
-                createTextView(textViewN, listView_todo);
-                arrayList_todo.add(textViewN + "");
+                textViewN.setText(txt_place2.getText());
+                createTextView(textViewN, listView_place);
             }
         });
+
+        btn_place3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TextView textViewN = new TextView(getApplicationContext());
+                textViewN.setText(txt_place3.getText());
+                createTextView(textViewN, listView_place);
+            }
+        });
+
+
 
         btn_finish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String place1 = txt_place1.getText().toString();
+                String place2 = txt_place2.getText().toString();
+                String place3 = txt_place3.getText().toString();
+                String todo1 = txt_todo1.getText().toString();
+                String todo2 = txt_todo2.getText().toString();
+                String todo3 = txt_todo3.getText().toString();
+                String todo4 = txt_todo4.getText().toString();
                 String schedule = txt_schedule.getText().toString();
                 Intent intent = new Intent(getApplicationContext(), MakeMoimActivity.class);
                 intent.putExtra("schedule", schedule);
-                intent.putExtra("place", arrayList_place);
-                intent.putExtra("todo", arrayList_todo);
+                intent.putExtra("place1", place1);
+                intent.putExtra("place2", place2);
+                intent.putExtra("place3", place3);
+                intent.putExtra("todo1",todo1);
+                intent.putExtra("todo2",todo2);
+                intent.putExtra("todo3",todo3);
+                intent.putExtra("todo4",todo4);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
         });

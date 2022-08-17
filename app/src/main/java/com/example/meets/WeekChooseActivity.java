@@ -12,11 +12,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 import androidx.core.content.ContextCompat;
 
-public class WeekChooseActivity extends AppCompatActivity {
-    private TextView textView_Date;
-    private TimePickerDialog.OnTimeSetListener callbackMethod;
-    private Button btn_start;
-    private Button btn_finish;
+import java.io.Serializable;
+
+public class WeekChooseActivity extends AppCompatActivity implements Serializable {
+    TimePickerDialog.OnTimeSetListener time_start;
+    TimePickerDialog.OnTimeSetListener time_finish;
+    Button btn_start;
+    Button btn_finish;
+    TextView tv_start;
+    TextView tv_finish;
     SwitchCompat switchOnOff;
     TextView tvSwitchYes;
     TextView tvSwitchNo;
@@ -45,42 +49,38 @@ public class WeekChooseActivity extends AppCompatActivity {
                 }
             }
         });
+        tv_start = findViewById(R.id.tv_start_time);
+        tv_finish = findViewById(R.id.tv_finish_time);
 
-        this.InitialiseView();
-        this.InitializeListener();
-        btn_start = (Button)findViewById(R.id.btn_start_time);
+        time_start = new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int h, int m) {
+                tv_start.setText(h + "시" + m + "분");
+            }
+        };
+        btn_start = findViewById(R.id.btn_start_time);
         btn_start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                OnClickHandler(view);
+                TimePickerDialog time_dialog_start = new TimePickerDialog(WeekChooseActivity.this, android.R.style.Theme_Holo_Light_Dialog, time_start, 10, 00, true);
+                time_dialog_start.show();
             }
         });
 
-        btn_finish = (Button)findViewById(R.id.btn_finish_time);
+        time_finish = new TimePickerDialog.OnTimeSetListener() {
+            @Override
+            public void onTimeSet(TimePicker timePicker, int h, int m) {
+                tv_finish.setText(h + "시" + m + "분");
+            }
+        };
+        btn_finish = findViewById(R.id.btn_finish_time);
         btn_finish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                OnClickHandler(view);
+                TimePickerDialog time_dialog_end = new TimePickerDialog(WeekChooseActivity.this,android.R.style.Theme_Holo_Light_Dialog, time_finish, 20, 00, true);
+                time_dialog_end.show();
             }
         });
 
-    }
-
-    private void InitializeListener() {
-        callbackMethod = new TimePickerDialog.OnTimeSetListener() {
-            @Override
-            public void onTimeSet(TimePicker timePicker, int h, int m) {
-                textView_Date.setText(h + "시" + m + "분");
-            }
-        };
-    }
-
-    private void InitialiseView() {
-        textView_Date = (TextView) findViewById(R.id.textview_date);
-    }
-
-    public void OnClickHandler(View view) {
-        TimePickerDialog dialog = new TimePickerDialog(this, android.R.style.Theme_Holo_Light_Dialog, callbackMethod, 00, 00, true);
-        dialog.show();
     }
 }

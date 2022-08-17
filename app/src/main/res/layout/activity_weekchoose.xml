@@ -336,14 +336,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <TextView
+            <Button
+                android:id="@+id/btn_start_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="시작"
                 android:textSize="16dp"/>
 
-            <Button
-                android:id="@+id/btn_start_time"
+            <TextView
+                android:id="@+id/tv_start_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="20 : 00"
@@ -358,7 +359,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="13dp"
             android:text=" ~ "
             android:textSize="14dp"
             android:textColor="@color/black"/>
@@ -372,14 +373,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <TextView
+            <Button
+                android:id="@+id/btn_finish_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="끝"
                 android:textSize="16dp"/>
 
-            <Button
-                android:id="@+id/btn_finish_time"
+            <TextView
+                android:id="@+id/tv_finish_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="22 : 00"
@@ -387,12 +389,6 @@
         </LinearLayout>
 
     </LinearLayout>
-    <TextView
-        android:id="@+id/textview_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="결과"/>
     <Switch
         android:id="@+id/switch1"
         android:layout_width="wrap_content"
@@ -405,6 +401,6 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="완료"
-        android:background="@color/secondary"/>
+        android:background="@color/secondary"
+        android:text="완료" />
 </LinearLayout>

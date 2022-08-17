@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -121,6 +122,10 @@ public class ChangeMoimActivity extends AppCompatActivity {
         String place1 = intent.getStringExtra("place1");
         String place2 = intent.getStringExtra("place2");
         String place3 = intent.getStringExtra("place3");
+        String todo1 = intent.getStringExtra("todo1");
+        String todo2 = intent.getStringExtra("todo2");
+        String todo3 = intent.getStringExtra("todo3");
+        String todo4 = intent.getStringExtra("todo4");
 
         TextView txt_schedule = findViewById(R.id.txt_schedule);
         txt_schedule.setText(schedule);
@@ -130,10 +135,68 @@ public class ChangeMoimActivity extends AppCompatActivity {
         txt_place2.setText(place2);
         TextView txt_place3 = findViewById(R.id.txt_place3);
         txt_place3.setText(place3);
+        TextView txt_todo1 = findViewById(R.id.txt_todo1);
+        txt_todo1.setText(todo1);
+        TextView txt_todo2 = findViewById(R.id.txt_todo2);
+        txt_todo1.setText(todo2);
+        TextView txt_todo3 = findViewById(R.id.txt_todo3);
+        txt_todo1.setText(todo3);
+        TextView txt_todo4 = findViewById(R.id.txt_todo4);
+        txt_todo1.setText(todo4);
+
+        findViewById(R.id.cb_todo1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CheckBox todo1 = findViewById(R.id.cb_todo1);
+                if (todo1.isChecked()) txt_todo1.setText("삭제된 일정");
+            }
+        });
+        findViewById(R.id.cb_todo2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CheckBox todo2 = findViewById(R.id.cb_todo2);
+                if (todo2.isChecked()) txt_todo2.setText("삭제된 일정");
+            }
+        });
+        findViewById(R.id.cb_todo3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CheckBox todo3 = findViewById(R.id.cb_todo3);
+                if (todo3.isChecked()) txt_todo3.setText("삭제된 일정");
+            }
+        });
+        findViewById(R.id.cb_todo4).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CheckBox todo4 = findViewById(R.id.cb_todo4);
+                if (todo4.isChecked()) txt_todo4.setText("삭제된 일정");
+            }
+        });
         Button btn_finish = (Button) findViewById(R.id.btn_finish);
-        Button btn_todo = (Button) findViewById(R.id.btn_todo);
-        Button btn_place = findViewById(R.id.btn_place);
+        btn_finish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String place1 = txt_place1.getText().toString();
+                String place2 = txt_place2.getText().toString();
+                String place3 = txt_place3.getText().toString();
+                String todo1 = txt_todo1.getText().toString();
+                String todo2 = txt_todo2.getText().toString();
+                String todo3 = txt_todo3.getText().toString();
+                String todo4 = txt_todo4.getText().toString();
+                String schedule = txt_schedule.getText().toString();
+                Intent intent = new Intent(getApplicationContext(), MakeMoimActivity.class);
+                intent.putExtra("schedule", schedule);
+                intent.putExtra("place1", place1);
+                intent.putExtra("place2", place2);
+                intent.putExtra("place3", place3);
+                intent.putExtra("todo1", todo1);
+                intent.putExtra("todo2", todo2);
+                intent.putExtra("todo3", todo3);
+                intent.putExtra("todo4", todo4);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+            }
+        });
 
     }
-
 }

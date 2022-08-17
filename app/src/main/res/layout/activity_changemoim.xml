@@ -10,6 +10,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <Button
+            android:id="@+id/btn_stop"
             android:layout_width="10dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -188,31 +189,67 @@
                     android:paddingTop="10dp"
                     android:paddingRight="30dp"
                     android:paddingBottom="10dp">
-
-                    <CheckBox
-                        android:id="@+id/todo1"
-                        android:button="@drawable/checkbox_change"
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="할 일1" />
-
-                    <CheckBox
+                        android:orientation="horizontal">
+                        <CheckBox
+                            android:id="@+id/cb_todo1"
+                            android:button="@drawable/checkbox_change"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:id="@+id/txt_todo1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="등록된 할 일이 없습니다."/>
+                    </LinearLayout>
+                    <LinearLayout
                         android:layout_width="wrap_content"
-                        android:button="@drawable/checkbox_change"
                         android:layout_height="wrap_content"
-                        android:text="할 일2" />
-
-                    <CheckBox
+                        android:orientation="horizontal">
+                        <CheckBox
+                            android:id="@+id/cb_todo2"
+                            android:button="@drawable/checkbox_change"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:id="@+id/txt_todo2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="등록된 할 일이 없습니다."/>
+                    </LinearLayout>
+                    <LinearLayout
                         android:layout_width="wrap_content"
-                        android:button="@drawable/checkbox_change"
                         android:layout_height="wrap_content"
-                        android:text="할 일3" />
-
-                    <CheckBox
+                        android:orientation="horizontal">
+                        <CheckBox
+                            android:id="@+id/cb_todo3"
+                            android:button="@drawable/checkbox_change"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:id="@+id/txt_todo3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="등록된 할 일이 없습니다."/>
+                    </LinearLayout>
+                    <LinearLayout
                         android:layout_width="wrap_content"
-                        android:button="@drawable/checkbox_change"
                         android:layout_height="wrap_content"
-                        android:text="할 일4" />
+                        android:orientation="horizontal">
+                        <CheckBox
+                            android:id="@+id/cb_todo4"
+                            android:button="@drawable/checkbox_change"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:id="@+id/txt_todo4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="등록된 할 일이 없습니다."/>
+                    </LinearLayout>
+
                 </LinearLayout>
             </LinearLayout>
 
