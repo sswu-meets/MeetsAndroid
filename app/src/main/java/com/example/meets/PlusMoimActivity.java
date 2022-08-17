@@ -57,6 +57,9 @@ public class PlusMoimActivity extends AppCompatActivity implements Serializable 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plusmoim);
+
+        Button moveBack = findViewById(R.id.pre_page_btn);
+
         switchOnOff = findViewById(R.id.switchOnOff);
         tvSwitchYes = findViewById(R.id.tvSwitchYes);
         tvSwitchNo = findViewById(R.id.tvSwitchNo);

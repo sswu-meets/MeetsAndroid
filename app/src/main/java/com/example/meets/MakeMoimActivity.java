@@ -70,6 +70,8 @@ public class MakeMoimActivity extends AppCompatActivity {
         TextView txt_todo4 = findViewById(R.id.todo4);
         txt_todo4.setText(todo4);
 
+        Button moveback = findViewById(R.id.pre_page_btn);
+
         Button btn_plusPeople = (Button) findViewById(R.id.btn_PlusPeople);
         btn_plusPeople.setOnClickListener(new View.OnClickListener() {
             @Override

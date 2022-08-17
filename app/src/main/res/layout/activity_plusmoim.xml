@@ -11,6 +11,8 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/pre_page_btn"
+            android:onClick="moveBack"
             android:layout_width="10dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
