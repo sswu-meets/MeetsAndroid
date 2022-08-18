@@ -76,7 +76,6 @@ public class MoimActivity extends AppCompatActivity implements AdapterView.OnIte
 
     public void InitializeView() {
         layout_before = (LinearLayout)findViewById(R.id.before);
-        layout_after = (LinearLayout)findViewById(R.id.after);
     }
 
     @Override

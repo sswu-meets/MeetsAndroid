@@ -11,6 +11,8 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/pre_page_btn"
+            android:onClick="moveBack"
             android:layout_width="10dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -60,7 +62,7 @@
             android:paddingRight="15dp">
 
             <EditText
-                android:id="@+id/txt_place"
+                android:id="@+id/txt_schedule"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:text="일정이름"
@@ -140,68 +142,107 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/gray_2">
-                <LinearLayout
+                <FrameLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:layout_height="wrap_content">
 
-                    <Button
-                        android:id="@+id/btn_PlusPeople"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_margin="16dp"
-                        android:background="@drawable/button_circle"
-                        android:text="+"
-                        android:textColor="@color/white"
-                        android:textStyle="bold"
-                        tools:ignore="MissingClass" />
+                    <LinearLayout
+                        android:id="@+id/layout_nonpeople"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
 
-                </LinearLayout>
+                        <Button
+                            android:id="@+id/btn_PlusPeople"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_margin="16dp"
+                            android:background="@drawable/button_circle"
+                            android:text="+"
+                            android:textColor="@color/white"
+                            android:textStyle="bold"
+                            tools:ignore="MissingClass" />
+
+
+
+                    </LinearLayout>
+
+                </FrameLayout>
+
 
             </HorizontalScrollView>
-
-            <LinearLayout
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-            </LinearLayout>
-
+                android:text="TO DO"/>
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp"
+                android:paddingBottom="10dp"
                 android:orientation="vertical"
-                android:paddingTop="15dp">
+                android:background="@drawable/edge">
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
-
-                    <TextView
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <EditText
+                        android:id="@+id/txt_todo1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="TO DO"
-                        android:textSize="16dp"/>
-
-                    <View
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"/>
-
-                    <Button
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="+"
-                        android:textSize="20dp"/>
+                        android:text="to do"/>
 
                 </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <EditText
+                        android:id="@+id/txt_todo2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="to do"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <EditText
+                        android:id="@+id/txt_todo3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="to do"/>
 
-                <View
-                    android:id="@+id/divider"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="?android:attr/listDivider" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                    <EditText
+                        android:id="@+id/txt_todo4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="to do"/>
+
+                </LinearLayout>
             </LinearLayout>
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -222,21 +263,58 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"/>
 
-<!--                <Button-->
-<!--                    android:layout_width="55dp"-->
-<!--                    android:layout_height="18dp"-->
-<!--                    android:text="고정"-->
-<!--                    android:textSize="14dp"-->
-<!--                    android:background="@color/secondary"-->
-<!--                    android:textColor="@color/black"/>-->
+                <RelativeLayout
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="130sp"
+                    android:layout_marginRight="50sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="33dp"
+                    android:background="@drawable/bg_switch"
+                    android:padding="2.5sp">
 
-<!--                <Button-->
-<!--                    android:layout_width="55dp"-->
-<!--                    android:layout_height="18dp"-->
-<!--                    android:text="조율"-->
-<!--                    android:textSize="14dp"-->
-<!--                    android:background="@color/white"-->
-<!--                    android:textColor="@color/black"/>-->
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switchOnOff"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_centerVertical="true"
+                        android:layout_centerHorizontal="true"
+                        android:checked="true"
+                        android:textColor="@color/white"
+                        android:thumb="@drawable/thumb_selector"
+                        app:switchMinWidth="140dp"
+                        app:track="@drawable/track_selector" />
+
+                    <LinearLayout
+                        android:layout_width="140dp"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:id="@+id/tvSwitchYes"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="고정"
+                            android:textColor="@color/black"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/tvSwitchNo"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="조율"
+                            android:textColor="@color/white"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+                </RelativeLayout>
+>>>>>>> 943854cbc6876e9aeb81f30def47900e585550ba
 
             </LinearLayout>
 
@@ -245,13 +323,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
-
                 <LinearLayout
                     android:layout_width="150dp"
                     android:layout_height="70dp"
                     android:background="@color/secondary"
                     android:orientation="vertical">
-
 
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -263,16 +339,22 @@
                             android:layout_width="20sp"
                             android:layout_height="20sp"
                             android:layout_margin="5sp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="15sp"
                             android:background="@drawable/mini_cal"
                             android:padding="10sp" />
 
                         <TextView
+                            android:id="@+id/txt_date"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5sp"
                             android:text="날짜 설정"
                             android:textSize="16dp"
                             android:textColor="@color/white"/>
+                            android:text="날짜"
+                            android:textColor="@color/white"
+                            android:textSize="16dp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -282,29 +364,32 @@
                         android:orientation="horizontal"
                         android:paddingBottom="7dp">
 
-                        <Button
-                            android:id="@+id/date_fix_btn"
-                            android:layout_gravity="center"
-                            android:layout_width="45sp"
-                            android:layout_height="35sp"
-                            android:layout_margin="5sp"
-                            android:text="고정"
-                            android:textColor="@color/black"
-                            android:background="@color/white" />
+<!--                        <Button-->
+<!--                            android:id="@+id/date_fix_btn"-->
+<!--                            android:layout_gravity="center"-->
+<!--                            android:layout_width="45sp"-->
+<!--                            android:layout_height="35sp"-->
+<!--                            android:layout_margin="5sp"-->
+<!--                            android:text="고정"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:background="@color/white" />-->
+<!--                        android:id="@+id/btn_date"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:background="@color/white"-->
+<!--                        android:text="조율 GO"-->
+<!--                        android:textColor="@color/black" />-->
 
                         <Button
-                            android:id="@+id/date_arr_btn"
-                            android:layout_gravity="center"
-                            android:layout_width="45sp"
-                            android:layout_height="35sp"
-                            android:layout_margin="5sp"
-                            android:text="조율"
-                            android:textColor="@color/black"
-                            android:background="@color/white" />
+                            android:id="@+id/btn_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:text="조율 GO"
+                            android:textColor="@color/black" />
 
                     </LinearLayout>
                 </LinearLayout>
-
 
                 <LinearLayout
                     android:layout_width="250dp"
@@ -318,28 +403,65 @@
                         android:orientation="horizontal"
                         android:paddingBottom="7dp">
 
-                        <ImageButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+                        <ImageView
+                            android:layout_width="20sp"
+                            android:layout_height="20sp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="15sp"
+                            android:background="@drawable/mini_watch"
+                            android:padding="10sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="시간"
-                            android:textSize="16dp"
-                            android:textColor="@color/black"/>
+                            android:textColor="@color/black"
+                            android:textSize="16dp" />
                     </LinearLayout>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="   |->  20 : 00  PM"
-                        android:textColor="@color/black"/>
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="   -|  22 : 00  PM"
-                        android:textColor="@color/black"/>
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btn_start_time"
+                            android:layout_width="18sp"
+                            android:layout_height="18sp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="15sp"
+                            android:background="@drawable/set_start"
+                            android:padding="10sp" />
+
+                        <TextView
+                            android:id="@+id/tv_start"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="10 : 00 AM"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/btn_end_time"
+                            android:layout_width="18sp"
+                            android:layout_height="18sp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="15sp"
+                            android:background="@drawable/set_end"
+                            android:padding="10sp" />
+
+                        <TextView
+                            android:id="@+id/tv_end"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="10 : 00 PM"
+                            android:textColor="@color/black" />
+                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
 
@@ -363,15 +485,18 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
-                        <ImageButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-
+                        <ImageView
+                            android:layout_width="10dp"
+                            android:layout_height="14dp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="15sp"
+                            android:background="@drawable/place_btn"
+                            android:padding="10sp" />
                         <EditText
-                            android:id="@+id/txt_place"
+                            android:id="@+id/txt_place1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="위치 추가하기"
+                            android:text="위치 1 추가하기"
                             android:textSize="14dp"
                             android:textColor="@color/secondary"/>
 
@@ -381,12 +506,91 @@
                             android:layout_weight="1"/>
 
                         <Button
-                            android:id="@+id/btn_place"
+                            android:id="@+id/btn_place1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="+"
-                            android:textColor="@color/secondary"/>
+                            android:textColor="@color/secondary" />
                     </LinearLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/edge">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="10dp"
+                            android:layout_height="14dp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="15sp"
+                            android:background="@drawable/place_btn"
+                            android:padding="10sp" />
+                        <EditText
+                            android:id="@+id/txt_place2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="위치 2 추가하기"
+                            android:textSize="14dp"
+                            android:textColor="@color/secondary"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"/>
+
+                        <Button
+                            android:id="@+id/btn_place2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="+"
+                            android:textColor="@color/secondary" />
+                    </LinearLayout>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/edge">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <ImageView
+                            android:layout_width="10dp"
+                            android:layout_height="14dp"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="15sp"
+                            android:background="@drawable/place_btn"
+                            android:padding="10sp" />
+                        <EditText
+                            android:id="@+id/txt_place3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="위치 3 추가하기"
+                            android:textSize="14dp"
+                            android:textColor="@color/secondary"/>
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"/>
+
+                        <Button
+                            android:id="@+id/btn_place3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="+"
+                            android:textColor="@color/secondary" />
+                    </LinearLayout>
+
                 </LinearLayout>
             </LinearLayout>
 
@@ -407,7 +611,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
                     android:background="?android:attr/listDivider" />
-
+                <LinearLayout
+                    android:id="@+id/layout_place"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

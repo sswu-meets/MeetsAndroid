@@ -35,6 +35,9 @@
         <activity android:name=".LoginActivity"></activity>
         <activity android:name=".MoimScheduleActivity" />
         <activity android:name=".ScheduleActivity" />
+        <activity android:name=".ChangeMoimActivity"></activity>
+        <activity android:name=".WeekChooseActivity"></activity>
+
 
 
     </application>
